@@ -2,6 +2,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors');
 const app = express()
+const db = require('./db/db.connection')
+db();
 
 // Estos son middlewares
 app.use(bodyParser.json());
