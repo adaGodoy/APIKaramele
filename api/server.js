@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors');
 const app = express()
 const db = require('./db/db.connection')
+const routerUsuario = require('./routes/usuarios.routes')
 db();
 
 // Estos son middlewares
@@ -17,6 +18,9 @@ app.set('port', process.env.PORT || 3000)
 app.get('/', function(req, res){
     res.send('Servidor Iniciado Karamele')
 });
+
+// rutas
+app.use('/api/usuario',routerUsuario)
 //puerto inicial, mensaje de que si esta encendido el servidor/local
 app.listen(app.get('port'),function(){
     console.log('Servidor iniciado en el puerto ', app.get('port'))

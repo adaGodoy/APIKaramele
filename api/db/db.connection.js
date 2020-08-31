@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
-
-const URI = "mongodb+srv://AdaGodoy:WNMYb8eTLMCRq4r@cluster0.otg2k.mongodb.net/<dbname>?retryWrites=true&w=majorit"
+const URI = "mongodb+srv://AdaGodoy:WNMYb8eTLMCRq4r@cluster0.otg2k.mongodb.net/karamele?retryWrites=true&w=majority"
 const connectDB = async () =>{
     await mongoose.connect(URI,{
         useCreateIndex: true,
