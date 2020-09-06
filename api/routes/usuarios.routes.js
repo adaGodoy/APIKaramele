@@ -15,7 +15,9 @@ router.post('/registro',function(req,res){
           primerApellido:req.body.primerApellido,
           segundoApellido:req.body.segundoApellido
         },
-        correo:req.body.correo
+        correo:req.body.correo,
+        nombreUsuario:req.body.nombreUsuario,
+        contrasenia:req.body.contrasenia
     })
     user.save()
     .then((response) => {
@@ -25,10 +27,11 @@ router.post('/registro',function(req,res){
       res.send(result);
     })
     .catch((err) => {
+        result.Success = false;
         result.Error = err;
         result.Response = "Ocurrio un error";
         res.send(result);
-      });
+    });
 })
 
 module.exports = router
