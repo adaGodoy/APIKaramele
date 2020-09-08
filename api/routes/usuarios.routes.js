@@ -34,4 +34,28 @@ router.post('/registro',function(req,res){
     });
 })
 
+//Obtener Usuario
+router.get('/obtenerUsuarios', function(req,res){
+  let result = Result.createResult();
+  usuario.find({estado:true}, function(err,usuarios){
+    if(err){
+      result.Success = false;
+      result.Error = err;
+      result.Response = "Ocurrio un error";
+      res.send(result);  
+    }
+    if(usuarios.length === 0){
+      result.Error = false;
+      result.Response = "No hay registros";
+      res.send(result);
+    }
+    if(usuarios){
+      result.Error = false;
+      result.Items = usuarios;
+      result.Response = "Todos los usuarios obtenidos de la busqueda";
+      res.send(result);
+    }
+  })
+})
+
 module.exports = router
