@@ -4,6 +4,7 @@ const cors = require('cors');
 const app = express()
 const db = require('./db/db.connection')
 const routerUsuario = require('./routes/usuarios.routes')
+const routerProducto = require('./routes/productos.routes')
 db();
 
 // Estos son middlewares
@@ -21,6 +22,7 @@ app.get('/', function(req, res){
 
 // rutas
 app.use('/api/usuario',routerUsuario)
+app.use('/api/producto',routerProducto)
 //puerto inicial, mensaje de que si esta encendido el servidor/local
 app.listen(app.get('port'),function(){
     console.log('Servidor iniciado en el puerto ', app.get('port'))
